@@ -20,28 +20,28 @@
         <p>A dockernized service for <em>SS</em></p>
         <div class="col-md-6 offset-md-3 text-center">
           {{ if not .uInfo }}
-          <a href="#" class="signup-btn signup-move">激活账号</a>
-          <p class="login-text">已注册用户，点击 <em><a class="login-move signup-loginhref" href="#">此处</a></em> 登录</p>
+          <a href="#" class="signup-btn signup-move">Activate the Account</a>
+          <p class="login-text">Signup <em><a class="login-move signup-loginhref" href="#">Here</a></em> Login</p>
           {{ else }}
           <a href="/panel/index" class="signup-btn">控制台</a> {{ end }}
         </div>
     </div>
     <div class="text-center" id="signup">
       <form class="form" id="signup-form" action="/signup" method="post">
-        <h1>激活账号</h1>
-        <input type="text" placeholder="邀请码" name="invite-code">
-        <input type="text" placeholder="用户名" name="username">
-        <input type="password" placeholder="密码" name="password">
-        <input type="password" placeholder="确认密码" name="confirm-password">
-        <button id="signup-btn" class="common-btn">激活</button>
+        <h1>Account Activation</h1>
+        <input type="text" placeholder="invite-code" name="invite-code">
+        <input type="text" placeholder="username" name="username">
+        <input type="password" placeholder="password" name="password">
+        <input type="password" placeholder="onfirm-password" name="confirm-password">
+        <button id="signup-btn" class="common-btn">Submit</button>
       </form>
     </div>
     <div class="text-center" id="login">
       <form class="form" id="login-form" action="/login" method="post">
-        <h1>用户登录</h1>
-        <input type="text" placeholder="用户名" name="username">
-        <input type="password" placeholder="密码" name="password">
-        <button id="login-btn" class="common-btn">登录</button>
+        <h1>User Login</h1>
+        <input type="text" placeholder="usernam" name="username">
+        <input type="password" placeholder="password" name="password">
+        <button id="login-btn" class="common-btn">Submit</button>
       </form>
     </div>
   </section>
