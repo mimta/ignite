@@ -19,10 +19,10 @@
 
                 <form class="form" id="create-form" action="/panel/create" method="post" {{ if ne .uInfo.Status 0}} style="display: none"
                     {{ end }}>
-                    <h1 id="form-title">创建服务</h1>
+                    <h1 id="form-title">Create a service</h1>
                     <span id="form-type" class="custom-dropdown big">
                         <select id="server-type" name="server-type">
-                            <option value="-1">请选择服务端类型</option>
+                            <option value="-1">Please select the server type</option>
                             {{ range $i, $v := .servers }}
                             <option value="{{$v}}">{{$v}}</option>
                             {{ end }}
@@ -32,19 +32,19 @@
                     <br/>
                     <span id="form-method" class="custom-dropdown big">
                         <select id="method" name="method">
-                            <option value="-1">请选择加密方式</option>
+                            <option value="-1">Please select the encryption method</option>
                         </select>
                     </span>
                     <br/>
                     <br/>
-                    <button id="create-btn" class="common-btn">创建</button>
+                    <button id="create-btn" class="common-btn">Create</button>
                 </form>
                 <div class="boxLoading"></div>
 
                 <div class='infobox multiline' {{ if eq .uInfo.Status 0 }} style="display: none"
                     {{ end }}>
                     <div class="header-bar text-left">
-                        <span>账户概览</span>
+                        <span>Account overview</span>
                         <button type="button" class="btn btn-link btn-sm" id="icon-qrcode"><i class="iconfont icon-qrcode"></i></button>
                     </div>
                     <div id="account-detail" class="basic-slide">
@@ -55,52 +55,52 @@
                         <div class="basic-slide_wrap">
                             <div class="basic-slide_line">
                                 <input class="basic-slide_input" id="host" type="text" value="{{ .uInfo.Host }}" readonly />
-                                <label for="name" class="basic-slide_label">主机</label>
+                                <label for="name" class="basic-slide_label">Host</label>
                             </div>
                             <div class="basic-slide_line">
                                 <input class="basic-slide_input" id="port" type="text" value="{{ .uInfo.ServicePort }}" readonly />
-                                <label for="name" class="basic-slide_label">端口</label>
+                                <label for="name" class="basic-slide_label">Port</label>
                             </div>
                             <div class="basic-slide_line">
                                 <input class="basic-slide_input" id="encrypt" type="text" value="{{ .uInfo.ServiceMethod }}" readonly />
-                                <label for="name" class="basic-slide_label">加密</label>
+                                <label for="name" class="basic-slide_label">Encryption</label>
                             </div>
                             <div class="basic-slide_line">
                                 <input class="basic-slide_input" id="pwd" type="text" value="{{ .uInfo.ServicePwd }}" readonly />
-                                <label for="name" class="basic-slide_label">密码</label>
+                                <label for="name" class="basic-slide_label">Password</label>
                             </div>
                         </div>
                         <div class="basic-slide_wrap">
                             <div class="basic-slide_line">
                                 <input class="basic-slide_input" id="types" type="text" value="{{ .uInfo.ServiceType }}" readonly />
-                                <label for="name" class="basic-slide_label">类型</label>
+                                <label for="name" class="basic-slide_label">Type</label>
                             </div>
                             <div id="ssr_info" {{ if ne .uInfo.ServiceType "SSR" }} style="display: none" {{ end }}>
                                 <div class="basic-slide_line">
                                     <input class="basic-slide_input" id="protocol" type="text" value="auth_aes128_md5" readonly />
-                                    <label for="name" class="basic-slide_label">协议</label>
+                                    <label for="name" class="basic-slide_label">Protocol</label>
                                 </div>
                                 <div class="basic-slide_line">
                                     <input class="basic-slide_input" id="protocol-param" type="text" value="32" readonly />
-                                    <label for="name" class="basic-slide_label">协参</label>
+                                    <label for="name" class="basic-slide_label">Protocol Parameter</label>
                                 </div>
                                 <div class="basic-slide_line">
                                     <input class="basic-slide_input" id="obfs" type="text" value="tls1.2_ticket_auth_compatible" readonly />
-                                    <label for="name" class="basic-slide_label">混淆</label>
+                                    <label for="name" class="basic-slide_label">obfs</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="middle-bar text-left">服务状态</div>
+                    <div class="middle-bar text-left">Service Status</div>
                     <div class="row">
                         <div class="offset-md-3 col-md-6 text-center">
                             <section class="status" id="service-status">
                                 {{ if eq .uInfo.Status 1 }}
                                 <div class="led green"></div>
-                                <span>运行中</span> {{ end }} {{ if eq .uInfo.Status 2 }}
+                                <span>Running</span> {{ end }} {{ if eq .uInfo.Status 2 }}
                                 <div class="led yellow"></div>
-                                <span>已停止</span> {{ end }}
-                                <span>到期: {{ .uInfo.Expired }}</span>
+                                <span>Stopped</span> {{ end }}
+                                <span>Expiry: {{ .uInfo.Expired }}</span>
                                 <section class="status">
                                 </section>
                             </section>
@@ -121,19 +121,19 @@
                             <div class="stat" id="package-limit">{{ .uInfo.PackageLimit }}
                                 <up>GB</up>
                             </div>
-                            <div class="stat-value">月流量</div>
+                            <div class="stat-value">Monthly limit</div>
                         </div>
                         <div class="a-third">
                             <div class="stat" id="package-used">{{ .uInfo.PackageUsed }}
                                 <up>GB</up>
                             </div>
-                            <div class="stat-value">已使用</div>
+                            <div class="stat-value">Used</div>
                         </div>
                         <div class="a-third no-border">
                             <div class="stat" id="package-left">{{ .uInfo.PackageLeft }}
                                 <up>GB</up>
                             </div>
-                            <div class="stat-value">剩余</div>
+                            <div class="stat-value">Remaining</div>
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
                             perc = Math.round(parseInt(length) / 3.56),
                             labelpos = (parseInt(length) - 15);
                         t.find('.label').css('left', labelpos);
-                        t.find('.perc').text(perc + '%可用');
+                        t.find('.perc').text(perc + '%Available');
                     }
                     perc();
                     setInterval(perc, 0);
